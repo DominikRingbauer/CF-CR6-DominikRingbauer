@@ -14,7 +14,8 @@ var __extends = (this && this.__extends) || (function () {
 console.log("test");
 var arr = [];
 var Locations = /** @class */ (function () {
-    function Locations(image, name, address, zip, city) {
+    function Locations(created, image, name, address, zip, city) {
+        this.created = created;
         this.image = image;
         this.name = name;
         this.address = address;
@@ -23,14 +24,14 @@ var Locations = /** @class */ (function () {
         arr.push(this);
     }
     Locations.prototype.display = function () {
-        return "<div class=\"col-sm-12 col-md-6 col-lg-3 bg-success\"> <img src=\"" + this.image + "\"> <p>" + this.name + "</p> <p>" + this.address + ", " + this.zip + " " + this.city + "</p>";
+        return "<div class=\"col-sm-12 col-md-6 col-lg-3 bg-success\"> <p>" + this.created + "</p> <img src=\"" + this.image + "\"> <p>" + this.name + "</p> <p>" + this.address + ", " + this.zip + " " + this.city + "</p>";
     };
     return Locations;
 }());
 var Restaurant = /** @class */ (function (_super) {
     __extends(Restaurant, _super);
-    function Restaurant(image, name, address, zip, city, phone, cuisine, website) {
-        var _this = _super.call(this, image, name, address, zip, city) || this;
+    function Restaurant(created, image, name, address, zip, city, phone, cuisine, website) {
+        var _this = _super.call(this, created, image, name, address, zip, city) || this;
         _this.phone = phone;
         _this.cuisine = cuisine;
         _this.website = website;
@@ -43,8 +44,8 @@ var Restaurant = /** @class */ (function (_super) {
 }(Locations));
 var Events = /** @class */ (function (_super) {
     __extends(Events, _super);
-    function Events(image, name, address, zip, city, website, date, price) {
-        var _this = _super.call(this, image, name, address, zip, city) || this;
+    function Events(created, image, name, address, zip, city, website, date, price) {
+        var _this = _super.call(this, created, image, name, address, zip, city) || this;
         _this.website = website;
         _this.date = date;
         _this.price = price;
@@ -56,15 +57,15 @@ var Events = /** @class */ (function (_super) {
     return Events;
 }(Locations));
 console.log(arr);
-var location1 = new Locations("img/st-charles-church.jpg", "St. Charles Church", "Karlsplatz 1", 1010, "Vienna");
-var location2 = new Locations("img/zoo-vienna.jpg", "Zoo Vienna", "Maxingstraße 13b", 1130, "Vienna");
-var restaurant1 = new Restaurant("img/lemon-leaf.png", "Lemon Leaf Thai Restaurant", "Kettenbrückengasse 19", 1050, "Vienna", "+43(1)5812308", "Thai cuisine", "www.lemonleaf.at");
-var restaurant2 = new Restaurant("img/sixta.png", "SIXTA", "Schönbrunner Straße 21", 1050, "Vienna", "+43 1 58 528 56 | +43 1 58 528 56", "Viennese Cuisine", "www.sixta-restaurant.at");
-var event1 = new Events("img/kris-kristofferson", "Kris Kristofferson", "Wiener Stadthalle, Halle F, Roland Rainer Platz 1", 1150, "Vienna", "kriskristofferson.com", "Fr., 15.11.2021, 20:00", "58,50 €");
-var event2;
+var location1 = new Locations("Created: 24.03.2019 12:45", "img/st-charles-church.jpg", "St. Charles Church", "Karlsplatz 1", 1010, "Vienna");
+var location2 = new Locations("Created: 24.03.2019 12:45", "img/zoo-vienna.jpg", "Zoo Vienna", "Maxingstraße 13b", 1130, "Vienna");
+var restaurant1 = new Restaurant("Created: 24.03.2019 12:45", "img/lemon-leaf.png", "Lemon Leaf Thai Restaurant", "Kettenbrückengasse 19", 1050, "Vienna", "+43(1)5812308", "Thai cuisine", "www.lemonleaf.at");
+var restaurant2 = new Restaurant("Created: 24.03.2019 12:45", "img/sixta.png", "SIXTA", "Schönbrunner Straße 21", 1050, "Vienna", "+43 1 58 528 56 | +43 1 58 528 56", "Viennese Cuisine", "www.sixta-restaurant.at");
+var event1 = new Events("Created: 24.03.2019 12:45", "img/kris-kristofferson.jpg", "Kris Kristofferson", "Wiener Stadthalle, Halle F, Roland Rainer Platz 1", 1150, "Vienna", "kriskristofferson.com", "Fr., 15.11.2021 - 20:00", "58,50 €");
+var event2 = new Events("Created: 24.03.2019 12:45", "img/lenny-kravitz.jpg", "Lenny Kravitz", "Wiener Stadthalle, Halle S, Roland Rainer Platz 1", 1150, "Vienna", "www.lennykravitz.com", "Sat., 09.12.2029 - 19:30", "47,80 €");
 $(document).ready(function () {
     for (var index in arr) {
         console.log(index);
-        $(".row").append(arr[index].display());
+        $(".content").append(arr[index].display());
     }
 });
