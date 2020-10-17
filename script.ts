@@ -19,7 +19,7 @@ let arr = [];
 		arr.push(this);
 	}
 	display() { 
-		return `<div class="col-sm-12 col-md-6 col-lg-3 bg-success m-auto"> <img src="${this.image}"> <p>${this.name}</p> <p>${this.address}, ${this.zip} ${this.city}</p>`
+		return `<div class="col-sm-12 col-md-6 col-lg-3 bg-success"> <img src="${this.image}"> <p>${this.name}</p> <p>${this.address}, ${this.zip} ${this.city}</p>`
 	}
 }
 
@@ -45,17 +45,18 @@ class Events extends Locations {
 	time : string;
 	price : string
 
-	constructor(image, name, address, zip, city, website, date, time, price) {
+	constructor(image, name, address, zip, city, website, date, price) {
 		super(image, name, address, zip, city);
 		this.website = website;
 		this.date = date;
-		this.time = time;
 		this.price = price;
 	}
 	display() {
-		return `${super.display()} <p>${this.website}<p>${this.date} ${this.time}</p> <p>${this.price} </p> </div>`
+		return `${super.display()} <p>${this.website}<p>${this.date}</p> <p>${this.price} </p> </div>`
 	}
 }
+
+console.log(arr);
 
 let location1 = new Locations("img/st-charles-church.jpg", "St. Charles Church", "Karlsplatz 1", 1010, "Vienna");
 
@@ -63,6 +64,11 @@ let location2 = new Locations("img/zoo-vienna.jpg", "Zoo Vienna", "Maxingstraße
 
 let restaurant1 = new Restaurant("img/lemon-leaf.png", "Lemon Leaf Thai Restaurant", "Kettenbrückengasse 19", 1050, "Vienna", "+43(1)5812308", "Thai cuisine", "www.lemonleaf.at");
 
+let restaurant2 = new Restaurant("img/sixta.png", "SIXTA", "Schönbrunner Straße 21", 1050, "Vienna", "+43 1 58 528 56 | +43 1 58 528 56", "Viennese Cuisine", "www.sixta-restaurant.at")
+
+let event1 = new Events("img/kris-kristofferson", "Kris Kristofferson", "Wiener Stadthalle, Halle F, Roland Rainer Platz 1", 1150, "Vienna", "kriskristofferson.com", "Fr., 15.11.2021, 20:00", "58,50 €")
+
+let event2
 
 $(document).ready(function(){
 	for (let index in arr) {

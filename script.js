@@ -23,7 +23,7 @@ var Locations = /** @class */ (function () {
         arr.push(this);
     }
     Locations.prototype.display = function () {
-        return "<div class=\"col-sm-12 col-md-6 col-lg-3 bg-success m-auto\"> <img src=\"" + this.image + "\"> <p>" + this.name + "</p> <p>" + this.address + ", " + this.zip + " " + this.city + "</p>";
+        return "<div class=\"col-sm-12 col-md-6 col-lg-3 bg-success\"> <img src=\"" + this.image + "\"> <p>" + this.name + "</p> <p>" + this.address + ", " + this.zip + " " + this.city + "</p>";
     };
     return Locations;
 }());
@@ -43,22 +43,25 @@ var Restaurant = /** @class */ (function (_super) {
 }(Locations));
 var Events = /** @class */ (function (_super) {
     __extends(Events, _super);
-    function Events(image, name, address, zip, city, website, date, time, price) {
+    function Events(image, name, address, zip, city, website, date, price) {
         var _this = _super.call(this, image, name, address, zip, city) || this;
         _this.website = website;
         _this.date = date;
-        _this.time = time;
         _this.price = price;
         return _this;
     }
     Events.prototype.display = function () {
-        return _super.prototype.display.call(this) + " <p>" + this.website + "<p>" + this.date + " " + this.time + "</p> <p>" + this.price + " </p> </div>";
+        return _super.prototype.display.call(this) + " <p>" + this.website + "<p>" + this.date + "</p> <p>" + this.price + " </p> </div>";
     };
     return Events;
 }(Locations));
+console.log(arr);
 var location1 = new Locations("img/st-charles-church.jpg", "St. Charles Church", "Karlsplatz 1", 1010, "Vienna");
 var location2 = new Locations("img/zoo-vienna.jpg", "Zoo Vienna", "Maxingstraße 13b", 1130, "Vienna");
 var restaurant1 = new Restaurant("img/lemon-leaf.png", "Lemon Leaf Thai Restaurant", "Kettenbrückengasse 19", 1050, "Vienna", "+43(1)5812308", "Thai cuisine", "www.lemonleaf.at");
+var restaurant2 = new Restaurant("img/sixta.png", "SIXTA", "Schönbrunner Straße 21", 1050, "Vienna", "+43 1 58 528 56 | +43 1 58 528 56", "Viennese Cuisine", "www.sixta-restaurant.at");
+var event1 = new Events("img/kris-kristofferson", "Kris Kristofferson", "Wiener Stadthalle, Halle F, Roland Rainer Platz 1", 1150, "Vienna", "kriskristofferson.com", "Fr., 15.11.2021, 20:00", "58,50 €");
+var event2;
 $(document).ready(function () {
     for (var index in arr) {
         console.log(index);
