@@ -65,9 +65,9 @@ let restaurant1 = new Restaurant("04.12.2018 21:50", "img/lemon-leaf.png", "Lemo
 
 let restaurant2 = new Restaurant("10.01.2019 11:15", "img/sixta.png", "SIXTA", "Schönbrunner Straße 21", 1050, "Vienna", "+43 1 58 528 56 | +43 1 58 528 56", "Viennese Cuisine", "www.sixta-restaurant.at")
 
-let event1 = new Events("23.11.2021 12:10", "img/kris-kristofferson.jpg", "Kris Kristofferson", "Wiener Stadthalle, Halle F, Roland Rainer Platz 1", 1150, "Vienna", "kriskristofferson.com", "Fr., 15.11.2021 - 20:00", "58,50 €")
+let event1 = new Events("23.11.2021 12:10", "img/kris-kristofferson.jpg", "Kris Kristofferson", "Wiener Stadthalle, Halle F, Roland Rainer Platz 1", 1150, "Vienna", "kriskristofferson.com", "Fr., 15.11.2021 - 20:00", "58,50 EUR")
 
-let event2 = new Events("31.12.2029 09:20", "img/lenny-kravitz.jpg", "Lenny Kravitz", "Wiener Stadthalle, Halle S, Roland Rainer Platz 1", 1150, "Vienna", "www.lennykravitz.com", "Sat., 09.12.2029 - 19:30", "47,80 €")
+let event2 = new Events("31.12.2029 09:20", "img/lenny-kravitz.jpg", "Lenny Kravitz", "Wiener Stadthalle, Halle S, Roland Rainer Platz 1", 1150, "Vienna", "www.lennykravitz.com", "Sat., 09.12.2029 - 19:30", "47,80 EUR")
 
 $(document).ready(function(){
 	for (let index in arr) {
@@ -75,6 +75,11 @@ $(document).ready(function(){
 		$(".content").append(arr[index].display());
 	}
 	
+	var date = new Array(arr[0].created);
+		date.push(arr[1].created);
+		date.push(arr[2].created);
+		date.push(arr[3].created);
+		date.push(arr[4].created);
+		date.push(arr[5].created);
+		console.log(date);
 });
-
-

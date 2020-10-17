@@ -69,12 +69,17 @@ let event1 = new Events("23.11.2021 12:10", "img/kris-kristofferson.jpg", "Kris 
 
 let event2 = new Events("31.12.2029 09:20", "img/lenny-kravitz.jpg", "Lenny Kravitz", "Wiener Stadthalle, Halle S, Roland Rainer Platz 1", 1150, "Vienna", "www.lennykravitz.com", "Sat., 09.12.2029 - 19:30", "47,80 €")
 
-$(document).ready(function(){
+$(document).ready(function() {
 	for (let index in arr) {
-		console.log(index);
 		$(".content").append(arr[index].display());
 	}
-	
+		
+		var date = new Array(arr[0].created);
+		date.push(arr[1].created);
+		date.push(arr[2].created);
+		date.push(arr[3].created);
+		date.push(arr[4].created);
+		date.push(arr[5].created);
+		console.log(date);
+			
 });
-
-
